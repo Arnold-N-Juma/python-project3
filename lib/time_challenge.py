@@ -1,19 +1,12 @@
-def convert_to_24_hour(hour, minute, period):
-    if period.lower() == "am":
+def time_in_24hrs(hour, minute, period):
+    if period.lower() == "am":  #This if statement checks if the time is set to am, if it is in am, then it doesn't add any value
         if hour == 12:
             hour = 0
-    else:
+    elif period.lower() == "pm": #If time is in pm it add 12 to the hour time
         if hour != 12:
             hour += 12
 
-    # Format the hour and minute as two-digit strings
-    hour_str = str(hour).zfill(2)
-    minute_str = str(minute).zfill(2)
+    time_24hrs = f"{hour:02d}{minute:02d}"  #  ensures that each number is displayed with at least two digits, adding leading zeros if needed.
+    return time_24hrs
 
-    # Concatenate the formatted hour and minute to get the 24-hour time
-    time_24_hour = hour_str + minute_str
-
-    return time_24_hour
-
-print(convert_to_24_hour(8, 30, "am"))  # Output: "0830"
-print(convert_to_24_hour(8, 30, "pm"))  # Output: "2030"
+print(time_in_24hrs(11, 30, "pm"))

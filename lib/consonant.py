@@ -1,4 +1,4 @@
-def solve(word):
+def compute(statement):
     vowels = "aeiou"
     consonant_values = {letter: ord(letter) - ord('a') + 1 for letter in "abcdefghijklmnopqrstuvwxyz" if letter not in vowels}
 
@@ -9,7 +9,7 @@ def solve(word):
     current_value = 0
     current_substring = ""
 
-    for letter in word:
+    for letter in statement:
         if letter not in vowels:
             current_substring += letter
             current_value += consonant_values[letter]
@@ -26,5 +26,5 @@ def solve(word):
     return max_value
 
 
-print(solve("zodiacs"))   
-print(solve("strength"))   
+print(compute("super"))   
+print(compute("human"))   
